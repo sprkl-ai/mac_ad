@@ -25,8 +25,8 @@ def find_macs(text):
 
 
 def save_macs(addresses, path):
-    """Сохранить найденные адреса в текстовый файл (будущий этап)."""
-    raise NotImplementedError("Сохранение адресов пока не реализовано")
+    """Сохранить найденные адреса по одному на строку."""
+    Path(path).write_text("\n".join(addresses) + "\n", encoding="utf-8")
 
 
 def read_url(url):
@@ -64,6 +64,10 @@ def main():
             print("Найдено:", len(addresses))
             for address in addresses:
                 print(address)
+            if addresses and input("Сохранить результат? (д/н): ").strip().lower() == "д":
+                path = input("Имя файла: ").strip()
+                save_macs(addresses, path)
+                print("Сохранено:", path)
         except (OSError, UnicodeError, ValueError) as error:
             print("Ошибка:", error)
 
