@@ -24,6 +24,11 @@ def find_macs(text):
     return list(dict.fromkeys(addresses))
 
 
+def save_macs(addresses, path):
+    """Сохранить найденные адреса в текстовый файл (будущий этап)."""
+    raise NotImplementedError("Сохранение адресов пока не реализовано")
+
+
 def read_url(url):
     if urlsplit(url).scheme not in ("http", "https"):
         raise ValueError("Нужен URL с http:// или https://")
