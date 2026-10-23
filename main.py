@@ -5,7 +5,6 @@ from urllib.parse import urlsplit
 from urllib.request import urlopen
 
 
-# Шесть пар шестнадцатеричных цифр с одинаковым разделителем.
 MAC_RE = re.compile(
     r"(?<![\w:-])[0-9A-Fa-f]{2}([:-])(?:[0-9A-Fa-f]{2}\1){4}"
     r"[0-9A-Fa-f]{2}(?![\w:-])"
@@ -17,14 +16,12 @@ def is_mac(value):
 
 
 def find_macs(text):
-    """Возвращает адреса по порядку появления, без повторов."""
     addresses = (match.group().replace("-", ":").upper()
                  for match in MAC_RE.finditer(text))
     return list(dict.fromkeys(addresses))
 
 
 def save_macs(addresses, path):
-    """Сохранить найденные адреса по одному на строку."""
     Path(path).write_text("\n".join(addresses) + "\n", encoding="utf-8")
 
 
