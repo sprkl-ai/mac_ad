@@ -1,4 +1,3 @@
-"""Проверка и поиск MAC-адресов в консоли."""
 
 import re
 from pathlib import Path
