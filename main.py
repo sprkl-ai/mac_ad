@@ -6,8 +6,8 @@ from urllib.request import urlopen
 
 
 MAC_RE = re.compile(
-    r"(?<![\w:-])[0-9A-Fa-f]{2}([:-])(?:[0-9A-Fa-f]{2}\1){4}"
-    r"[0-9A-Fa-f]{2}(?![\w:-])"
+    r"(?<![\w:-])[0-9A-Fa-f]{2}([:-])(?:[0-9A-Fa-f]{2}\1){4}[0-9A-Fa-f]{2}(?![\w:-])"
+    
 )
 
 
